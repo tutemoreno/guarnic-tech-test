@@ -1,54 +1,58 @@
-# Test Requirements Specification
+# Requisitos
 
-Hi, welcome to the Software Engineer CO Test. In this test we expect to see your approach to refactor a legacy code into a testeable, object oriented solution.
+Hola, este test está basado en un refactor de código existente. Se espera que se corrija la solución para que sea escalable.
 
-### We will only consider your application if you submit your own repository with the proposed solution. Forks or pull requests to our repo will DISCARD your application.
+### Un Fork or Pull Request a este repo DESCARTA AUTOMATICAMENTE la postulación. Envía tu solución en tu propio repo.
 
-The code updates the price of products of our business unit, Car Insurance, based on rules explained bellow.
+Este es el sistema de una empresa que vende seguros de auto. La plataforma actualmente se encarga de mantener actualizado el precio de sus productos basado en reglas explicadas más abajo.
 
-Here you have a description of the products.
+Esta es una descripción de los productos:
 
-- All Products have a `sellIn` value which denotes the number of days we have to sell the product.
-- All Products have a `price` value which denotes how much the product cost.
-- At the end of each day our system lowers both values for every product.
+- Todos los productos tienen un `sellIn` que representa la cantidad de días restantes para poder vender el producto.
+- Todos los productos tienen un `price` que representa el precio del producto.
+- Al final de cada día nuestro sistema actualiza ambos atributos para cada producto.
 
-Pretty simple, right? Well this is where it gets interesting:
+Esa es la parte simple, ahora la parte un poco más compleja:
 
-- Once the sell by date has passed, `price` degrades twice as fast.
-- The `price` of a product is never negative.
-- **"Full Coverage"** actually increases in `price` the older it gets.
-- The `price` of a product is never more than 50.
-- **"Mega Coverage"**, being a legendary product, never has to be sold or decreases in `price`.
-- **"Special Full Coverage"**, like full coverage, increases in `price` as its `sellIn` value approaches:
-	- `price` increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but.
-	- `price` drops to 0 when no more days left (and the product is not valid anymore).
+- Cuando el producto expira (ya no hay días restantes en `sellIn`), `price` se reduce al doble de velocidad.
+- El `price` del producto nunca es negativo.
+- El producto **"Full Coverage"** aumenta el `price` en vez de reducirlo a medida que pasa el tiempo.
+- El `price` de un producto nunca es más de 50.
+- **"Mega Coverage"** es un producto legendario así que no baja de precio ni tiene expiración.
+- **"Special Full Coverage"**, al igual que Full Coverage, aumenta el `price` a medida que `sellIn` llega a 0:
+  - `price` aumenta en 2 cuando solo quedan 10 días o menos y por 3 cuando quedan 5 días o menos. Pero...
+  - `price` baja directo a 0 cuando ya no quedan días y está expirado.
 
-We have recently released a new kind of product *Super Sale product*. This requires an update to our system:
+La compañía acaba de lanzar un nuevo tipo de producto, *Super Sale product*. Esto requiere una actualización a nuestro sistema:
 
-- **"Super Sale"** Products degrade in `price` twice as fast as normal Products.
+- **"Super Sale"** Baja el `price` al doble de la velocidad de los productos normales.
 
-Feel free to make any changes to the `updatePrice` method and add any new code as long as everything
-still works correctly. However, DO NOT alter the constructor of `Product` class.
+Puedes hacer cualquier cambio al metodo `updatePrice`, también agregar todo el código que necesites incluyendo archivos y 
+clases siempre que todo continúe funcionando correctamente. Sin embargo *NO DEBES* alterar el constructor de la clase `Product`.
 
-## Final notes
 
-- Just for clarification, a product can never have its `price` increase above 50, however **"Mega Coverage"** is a
-legendary product and as such its `price` is 80 and it never alters.
 
-- On file `products_after_30_days.txt` you could see the behavior of the products in the period of 30 days. **The `Super Sale` product is not working properly. You have to implement it.**
+## Últimas aclaraciones
 
-## Evaluation rules
-- Design an Object Oriented solution
-- The solution must be scalable, we expect to be able to add new products on the future
-- Meaningful git commits, we expect to see your solution approach as commit messages
-- We expect a Node.js (>6) codebase, otherwise you should provide a `Dockerfile` with all the required dependencies to run the required commands.
-- 100% code coverage, you should provide the report and the command to run the tests and get the coverage report.
+- Un producto nunca puede tener su `price` por encima de 50, sin embargo **"Mega Coverage"** es un 
+producto legendario y su `price` es fijo en 80, nunca cambia.
 
-### Required commands
-- `npm run test`, should run the test suite and display the coverage report
-- `npm run after-30-days`, should display an output similar to `products_after_30_days.txt`
+- El archivo `products_after_30_days.txt` muestra el comportamiento de los productos en un período de 30 días.
+- **El producto `Super Sale` No funciona correctamente, debes implementarlo.**
 
-You can use this code snipet as reference to implement the `after-30-days` script.
+## Que evaluaremos
+- La solución debe ser orientada a objetos
+- Debe ser escalable y fácil de mantener en el futuro.
+- Mensajes de commit entendibles. Leeremos la aproximación a la solución a traves de los commits.
+- Esperamos que la solución esté en Node.js (>8) o Java. Otras tecnologías son bienvenidas siempre que esté acomañado de 
+un `Dockerfile` con todas sus dependencias incorporadas.
+- Debería estar completamente testeado.
+
+### Comandos requeridos
+- `npm run test`, Correr los test y mostrar el coverage.
+- `npm run after-30-days`, Debería calcular los precios y mostrar un resultado similar a `products_after_30_days.txt`
+
+Puedes usar este snipet como base para correr el script `after-30-days`:
 
 ```js
 const productsAtDayZero = [
