@@ -1,12 +1,15 @@
-# Requisitos
+## Un Fork or Pull Request a este repo DESCARTA AUTOMÁTICAMENTE la postulación. Envía tu solución en tu propio repo.
 
-Hola, este test está basado en un refactor de código existente. Se espera que se corrija la solución para que sea escalable.
+# Si eres FRONTEND o FULLSTACK
+El test está diseñado para entender como piensas como programador. No incluye una evaluación de tus habilidades como frontend o tu conocimiento de frameworks para el frontend. Si estás postulando como front o fullstack, sería muy bueno, **pero no obligatorio**, incluir una visualización de la data generada para los productos en la tecnología que desees.
 
-### Un Fork or Pull Request a este repo DESCARTA AUTOMATICAMENTE la postulación. Envía tu solución en tu propio repo.
+# Introducción
 
-Este es el sistema de una empresa que vende seguros de auto. La plataforma actualmente se encarga de mantener actualizado el precio de sus productos basado en reglas explicadas más abajo.
+Hola! Este test está basado en un refactor de código existente. Se espera que se corrija la solución para que sea escalable.
 
-Esta es una descripción de los productos:
+Este es el sistema de una corredora que vende seguros de auto. La plataforma actualmente se encarga de mantener actualizado el precio de sus productos basado en reglas explicadas más abajo.
+
+## Los Productos:
 
 - Todos los productos tienen un `sellIn` que representa la cantidad de días restantes para poder vender el producto.
 - Todos los productos tienen un `price` que representa el precio del producto.
@@ -44,11 +47,11 @@ producto legendario y su `price` es fijo en 80, nunca cambia.
 - La solución debe ser orientada a objetos
 - Debe ser escalable y fácil de mantener en el futuro.
 - Mensajes de commit entendibles. Leeremos la aproximación a la solución a traves de los commits.
-- Esperamos que la solución esté en Node.js (>8) o Java. Otras tecnologías son bienvenidas siempre que esté acomañado de 
-un `Dockerfile` con todas sus dependencias incorporadas.
+- Esperamos que la solución esté en Node.js (>8) o Java. Otras tecnologías son bienvenidas siempre que esté acompañado de un `Dockerfile` con todas sus dependencias incorporadas.
 - Debería estar completamente testeado.
+- El código debe ser limpio y fácil de entender
 
-### Comandos requeridos
+## Comandos requeridos
 - `npm run test`, Correr los test y mostrar el coverage.
 - `npm run after-30-days`, Debería calcular los precios y mostrar un resultado similar a `products_after_30_days.txt`
 
