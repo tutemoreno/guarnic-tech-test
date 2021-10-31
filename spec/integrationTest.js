@@ -119,7 +119,7 @@ describe('Integration Test 30 days time lapse', function () {
     expect(products[8]).to.deep.equal({
       name: 'Super Sale',
       sellIn: 2,
-      price: 5,
+      price: 4,
     });
   });
 
@@ -169,7 +169,7 @@ describe('Integration Test 30 days time lapse', function () {
     expect(products[8]).to.deep.equal({
       name: 'Super Sale',
       sellIn: 1,
-      price: 4,
+      price: 2,
     });
   });
 
@@ -219,7 +219,7 @@ describe('Integration Test 30 days time lapse', function () {
     expect(products[8]).to.deep.equal({
       name: 'Super Sale',
       sellIn: 0,
-      price: 3,
+      price: 0,
     });
   });
 
@@ -269,7 +269,7 @@ describe('Integration Test 30 days time lapse', function () {
     expect(products[8]).to.deep.equal({
       name: 'Super Sale',
       sellIn: -1,
-      price: 1,
+      price: 0,
     });
   });
 
