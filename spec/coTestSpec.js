@@ -1,19 +1,24 @@
 const expect = require('chai').expect;
-
-const coTest = require('../src/coTest');
-const CarInsurance = coTest.CarInsurance;
-const Product = coTest.Product;
+const {
+  CarInsurance,
+  FullCoverageProduct,
+  LowCoverageProduct,
+  MediumCoverageProduct,
+  MegaCoverageProduct,
+  SpecialFullCoverageProduct,
+  SuperSaleProduct,
+} = require('../src/models/index');
 
 describe('Co Test', function () {
   describe('Special Full Coverage', function () {
     it('price limit', function () {
-      const coTest = new CarInsurance([
-        new Product('Special Full Coverage', 1, 50),
-        new Product('Special Full Coverage', 6, 50),
-        new Product('Special Full Coverage', 11, 50),
+      const carInsurance = new CarInsurance([
+        new SpecialFullCoverageProduct(1, 50),
+        new SpecialFullCoverageProduct(6, 50),
+        new SpecialFullCoverageProduct(11, 50),
       ]);
 
-      const products = coTest.updatePrice();
+      const products = carInsurance.updatePrice();
 
       expect(products[0]).to.deep.equal({
         name: 'Special Full Coverage',
@@ -33,16 +38,16 @@ describe('Co Test', function () {
     });
 
     it('on expire', function () {
-      const coTest = new CarInsurance([
-        new Product('Mega Coverage', 0, 10),
-        new Product('Special Full Coverage', 0, 10),
-        new Product('Full Coverage', 0, 10),
-        new Product('Medium Coverage', 0, 10),
-        new Product('Low Coverage', 0, 10),
-        new Product('Super Sale', 0, 10),
+      const carInsurance = new CarInsurance([
+        new MegaCoverageProduct(0, 10),
+        new SpecialFullCoverageProduct(0, 10),
+        new FullCoverageProduct(0, 10),
+        new MediumCoverageProduct(0, 10),
+        new LowCoverageProduct(0, 10),
+        new SuperSaleProduct(0, 10),
       ]);
 
-      const products = coTest.updatePrice();
+      const products = carInsurance.updatePrice();
 
       expect(products[0]).to.deep.equal({
         name: 'Mega Coverage',

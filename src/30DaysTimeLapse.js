@@ -1,6 +1,4 @@
-const coTest = require('./coTest');
-const CarInsurance = coTest.CarInsurance;
-const Product = coTest.Product;
+const { Product, CarInsurance } = require('./models/index');
 
 const productsAtDayZero = [
   new Product('Medium Coverage', 10, 20),

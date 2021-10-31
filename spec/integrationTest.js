@@ -1,19 +1,25 @@
 const expect = require('chai').expect;
 
-const coTest = require('../src/coTest');
-const CarInsurance = coTest.CarInsurance;
-const Product = coTest.Product;
+const {
+  CarInsurance,
+  FullCoverageProduct,
+  LowCoverageProduct,
+  MediumCoverageProduct,
+  MegaCoverageProduct,
+  SpecialFullCoverageProduct,
+  SuperSaleProduct,
+} = require('../src/models/index');
 
 const productsAtDayZero = [
-  new Product('Medium Coverage', 10, 20),
-  new Product('Full Coverage', 2, 0),
-  new Product('Low Coverage', 5, 7),
-  new Product('Mega Coverage', 0, 80),
-  new Product('Mega Coverage', -1, 80),
-  new Product('Special Full Coverage', 15, 20),
-  new Product('Special Full Coverage', 10, 49),
-  new Product('Special Full Coverage', 5, 49),
-  new Product('Super Sale', 3, 6),
+  new MediumCoverageProduct(10, 20),
+  new FullCoverageProduct(2, 0),
+  new LowCoverageProduct(5, 7),
+  new MegaCoverageProduct(0, 80),
+  new MegaCoverageProduct(-1, 80),
+  new SpecialFullCoverageProduct(15, 20),
+  new SpecialFullCoverageProduct(10, 49),
+  new SpecialFullCoverageProduct(5, 49),
+  new SuperSaleProduct(3, 6),
 ];
 
 const carInsurance = new CarInsurance(productsAtDayZero);
