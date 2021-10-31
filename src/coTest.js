@@ -70,14 +70,14 @@ class Product {
 }
 class CarInsurance {
   /**
-   * @param {Array(Product)} products array de productos
+   * @param {Array} products array de productos
    */
   constructor(products = []) {
     this.products = products;
   }
   /**
    * actualiza el precio de los productos
-   * @returns {Array(Product)} array de productos
+   * @returns {Array} array de productos
    */
   updatePrice() {
     const products = this.products;
