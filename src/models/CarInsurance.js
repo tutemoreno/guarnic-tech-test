@@ -13,7 +13,7 @@ module.exports = class CarInsurance {
     const products = this.products;
 
     for (const product of products) {
-      if (product.isRemainingDaysEditable) product.decSellIn();
+      if (product.isDaysRemainingEditable) product.decSellIn();
       if (product.isPriceEditable) product.updatePrice();
     }
 

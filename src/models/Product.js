@@ -20,7 +20,7 @@ module.exports = class Product {
    * booleano para dias editable
    * @return {Boolean}
    */
-  get isRemainingDaysEditable() {
+  get isDaysRemainingEditable() {
     return true;
   }
   /**
@@ -34,15 +34,16 @@ module.exports = class Product {
    * precio limite del producto
    * @return {Number}
    */
-  get limitPrice() {
+  get priceLimit() {
     return 50;
   }
   /**
    * getter llego al precio limite
+   * a veces lo mas dificil es el nombre
    * @return {Boolean}
    */
   get isExpensive() {
-    return this.price == this.limitPrice;
+    return this.price == this.priceLimit;
   }
   /**
    * getter sin precio
@@ -60,7 +61,7 @@ module.exports = class Product {
 
     this.price += v;
 
-    if (this.price > this.limitPrice) this.price = this.limitPrice;
+    if (this.price > this.priceLimit) this.price = this.priceLimit;
   }
   /**
    * decrementa el precio del producto

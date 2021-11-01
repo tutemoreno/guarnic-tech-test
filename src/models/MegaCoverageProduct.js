@@ -3,10 +3,9 @@ const Product = require('./Product');
 module.exports = class MegaCoverageProduct extends Product {
   /**
    * @param {Number} sellIn dias restantes para expirar
-   * @param {Number} price precio del producto
    */
-  constructor(sellIn, price) {
-    super('Mega Coverage', sellIn, price);
+  constructor(sellIn) {
+    super('Mega Coverage', sellIn, 80);
   }
   /**
    * booleano para precio editable
@@ -19,7 +18,7 @@ module.exports = class MegaCoverageProduct extends Product {
    * booleano para dias editable
    * @return {Boolean}
    */
-  get isRemainingDaysEditable() {
+  get isDaysRemainingEditable() {
     return false;
   }
   /**
@@ -33,11 +32,12 @@ module.exports = class MegaCoverageProduct extends Product {
    * precio limite del producto
    * @return {Number}
    */
-  get limitPrice() {
+  get priceLimit() {
     return 80;
   }
   /**
    * getter llego al precio limite
+   * a veces lo mas dificil es el nombre
    * @return {Boolean}
    */
   get isExpensive() {
@@ -54,7 +54,9 @@ module.exports = class MegaCoverageProduct extends Product {
    * el precio no es editable
    */
   throwEditPrice() {
-    throw { message: 'price in Mega Coverage Product is not editable' };
+    const message = 'price in Mega Coverage Product is not editable';
+
+    throw { message };
   }
   /**
    * incrementa el precio del producto
@@ -78,6 +80,8 @@ module.exports = class MegaCoverageProduct extends Product {
    * decrementa dias restantes
    */
   decSellIn() {
-    throw { message: 'sellIn in Mega Coverage Product is not editable' };
+    const message = 'sellIn in Mega Coverage Product is not editable';
+
+    throw { message };
   }
 };
